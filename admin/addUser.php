@@ -8,7 +8,7 @@
                                     <!-- Begin page -->
                                     <div id="layout-wrapper">
 
-                                        <?php require_once 'sidebar.php';  ?>
+                                        <?php require_once '../share/sidebar.php';  ?>
 
                                         <!-- ============================================================== -->
                                         <!-- Start right Content here -->
@@ -113,7 +113,7 @@
                                         <!-- End Page-content -->
 
 
-                                        <?php require_once 'footer.php'; ?>
+                                        <?php require_once '../share/footer.php'; ?>
 
                                     </div>
                                     <!-- end main content-->
