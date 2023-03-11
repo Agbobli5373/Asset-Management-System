@@ -39,7 +39,7 @@
             <div class="card-body p-4">
               <div class="p-2">
                 <h5 class="mb-5 text-center">Sign In</h5>
-                <form class="form-horizontal" method="POST" id="sign_in_form" action="admin/dashboard.php">
+                <form class="form-horizontal" method="POST" id="sign_in_form" >
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group mb-4">
@@ -88,7 +88,7 @@
 
   <script src="assets/js/app.js"></script>
 
-  <!--    <script type='text/javascript'>
+    <script type='text/javascript'>
                 $(document).ready(function(){
 
                     $('.spinner-border').hide();
@@ -105,18 +105,16 @@
                 data: formdata,
                 success:function(res){
                 
-                if(res === "office"){
+                if(res === "admin"){
                 
-                window.location.href='agent-profile.php';
+                window.location.href='admin/dashboard.php';
 
                 }else if(res === "not_exist"){
                 $('#error-show').show();
                 $('.spinner-border').hide();
                 
-                }else if(res === "student"){
-                    window.location.href='student-profile.php';
-                }else if(res === "admin"){
-                    window.location.href='dashboard.php'
+                }else if(res === "user"){
+                    window.location.href='user/dashboard.php';
                 }
             },
                 error:function(res){
@@ -130,7 +128,6 @@
             });
     
     </script>
--->
 </body>
 
 </html>

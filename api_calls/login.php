@@ -32,5 +32,5 @@ require_once '../config/dbConnect.php';
                 echo 'user' ;
             }
         } else {
-            echo "user not exit";
+            echo "not_exist";
         }
