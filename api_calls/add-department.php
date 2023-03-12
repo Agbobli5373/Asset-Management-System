@@ -11,7 +11,7 @@ $check_department_sql = "SELECT *
         LIMIT 1" ;
 
 $insert_department_sql = "INSERT 
-        INTO `department_tbl` (`department_id`, `department_name`, `department_timestamp`) 
+        INTO `department_tbl` (`department_name`, `department_timestamp`) 
         VALUES ('$get_department_name', current_timestamp())";
 
 $check_department = mysqli_query($connectionString,$check_department_sql)or die(mysqli_error($connectionString));

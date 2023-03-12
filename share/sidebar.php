@@ -139,7 +139,7 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li><a href="../admin/addDepartment.php">Add Department</a></li>
-                    <li><a href="uncleared-student-view.php">View Department</a></li>
+                    <li><a href="../admin/getDepartments.php">View Department</a></li>
                 </ul>
             </li>
              <li>
