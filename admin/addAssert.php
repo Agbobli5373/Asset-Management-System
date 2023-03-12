@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php $title = "Add Asset Category" ?>
+<?php $title = "Add Asset " ?>
 <?php require_once '../share/head.php'; ?>
 <?php require_once('../config/dbConnect.php') ?>
 
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
-                                <h4 class="mb-0 font-size-18">Asset Categories</h4>
+                                <h4 class="mb-0 font-size-18">Assets</h4>
 
                             </div>
                         </div>
@@ -35,10 +35,10 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Add New Category</h4>
+                                    <h4 class="header-title">Add New Asset</h4>
 
 
-                                    <form class="mt-4" id="add-student" method="POST">
+                                    <form class="mt-4" id="add-asset" method="POST">
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name of the Asset</label>
@@ -96,8 +96,8 @@
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <label for="depreciate">Depreciate Percentage</label>
-                                                <input type="number" name="depreciate" class="form-control depreciate" id="depreciate" placeholder="Depreciate" required>
+                                                <label for="price">Price of the Asset</label>
+                                                <input type="number" name="price" class="form-control price" id="price" placeholder="Price" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -106,14 +106,31 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
-                                                <label for="remark">Remark</label>
-                                                <input type="text" name="remark" class="form-control phone" id="remark" placeholder="Remark" required>
+                                                <label for="depreciate">Depreciate Percentage</label>
+                                                <input type="number" name="depreciate" class="form-control depreciate" id="depreciate" placeholder="Depreciate" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="depreciate">Asset Quantity</label>
+                                                <input type="number" name="quantity" class="form-control quantity" id="quantity" placeholder="quantity" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary text-center" type="submit">Add Category</button>
+                                        <div class="row col-md-12 mb-3">
+
+                                            <label for="remark">Details</label>
+                                            <input type="text" name="detail" class="form-control detail" id="detail" placeholder="Asset Details" required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-primary text-center" type="submit">Add Asset</button>
                                     </form>
                                 </div>
                             </div>
@@ -138,25 +155,29 @@
 
             <?php require_once("../share/script.php") ?>
 
-            <!--
+            
             <script type='text/javascript'>
                 $(document).ready(function() {
 
                     alertify.set('notifier', 'position', 'top-right');
-                    $('#add-category').submit(function(e) {
+                    $('#add-asset').submit(function(e) {
                         e.preventDefault();
                         var formdata = $(this).serialize();
-                        if ($('.category-name').val() === '') {
+                        if ($('.name').val() === '') {
                             alertify.error("Please Enter Name");
                         } else {
 
                             $.ajax({
-                                url: '../api_calls/add-category.php',
+                                url: '../api_calls/add-asset.php',
                                 type: 'POST',
                                 data: formdata,
                                 success: function(res) {
                                     if (res.trim() === "success") {
-                                        $('.category-name').val('');
+                                        $('.name').val('');
+                                        $('.price').val('');
+                                        $('.depreciate').val('');
+                                        $('.quantity').val('');
+                                        $('.detail').val('');
                                         alertify.success("Added Successfully");
 
                                     } else if (res.trim() === "already") {
@@ -177,7 +198,7 @@
 
 
 
-                }); -->
+                });
             </script>
 
 
