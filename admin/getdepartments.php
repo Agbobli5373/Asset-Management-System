@@ -32,7 +32,7 @@
                     </div>
                     <!-- end page title -->
 
-                   
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -63,43 +63,43 @@
             </div>
             <!-- End Page-content -->
 
-                <!-- End Page-content -->
-<!-- sample modal content -->
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title mt-0" id="myModalLabel">Edit Department</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<form class="" id="edit-department" method="POST">
-    <input type="hidden" name="depart_id" value="" id="depart_id">
-                                            <div class="row">
-                                                <div class="col-md-12 mb-3">
-                                                    <label for="edit-department-name">Name</label>
-                                                    <input type="text" name="department_name" class="form-control edit-department-name" id="edit-department-name" placeholder="Department Name"required>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
-                                                </div>
-                                               
-                                              
-                                            </div>
-                                           
-                                            
-                                        
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
-<button type="submit" class="btn btn-outline-primary waves-effect waves-light">Update</button>
-</form>
-</div>
-</div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+            <!-- End Page-content -->
+            <!-- sample modal content -->
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="myModalLabel">Edit Department</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="" id="edit-department" method="POST">
+                                <input type="hidden" name="depart_id" value="" id="depart_id">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="edit-department-name">Name</label>
+                                        <input type="text" name="department_name" class="form-control edit-department-name" id="edit-department-name" placeholder="Department Name" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-outline-primary waves-effect waves-light">Update</button>
+                            </form>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
 
 
 
@@ -127,6 +127,33 @@
             fetchDepartments();
 
             alertify.set('notifier', 'position', 'top-right');
+
+
+            $(document).on('click', '.btn-edit', function(e) {
+
+
+                var id = $(this).attr('id');
+                $('#depart_id').val(id);
+
+                $.ajax({
+                    url: '../api_calls/get-department-details.php',
+                    type: 'POST',
+                    data: {
+                        id: id
+                    },
+                    success: function(res) {
+
+                        $('.edit-department-name').val(res.name);
+                        $('#myModal').modal('show');
+                        console.log(res);
+                    },
+                    error: function(res) {
+                        console.log(res);
+                    }
+
+                });
+            })
+
             $('#edit-department').submit(function(e) {
                 e.preventDefault();
                 var formdata = $(this).serialize();
@@ -162,30 +189,6 @@
             });
 
 
-            $(document).on('click', '.btn-edit', function(e) {
-
-
-                var id = $(this).attr('id');
-                $('#depart_id').val(id);
-
-                $.ajax({
-                    url: '../api_calls/get-department-details.php',
-                    type: 'POST',
-                    data: {
-                        id: id
-                    },
-                    success: function(res) {
-
-                        $('.edit-department-name').val(res.name);
-                        $('#myModal').modal('show');
-                    },
-                    error: function(res) {
-                        console.log(res);
-                    }
-
-                });
-            })
-
 
             $(document).on('click', '.btn-delete', function(e) {
                 var id = $(this).attr('id');
@@ -204,7 +207,7 @@
                                     fetchDepartments();
                                 } else {
                                     alertify.error("Something went wrong");
-                                    console.log(res) ;
+                                    console.log(res);
                                 }
 
                             },

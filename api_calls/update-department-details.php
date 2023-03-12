@@ -12,7 +12,7 @@ require_once '../config/dbConnect.php';
 
         $sql_upadate = "UPDATE `department_tbl` 
                         SET `department_name` = '$get_department_name' 
-                        WHERE `departments_tbl`.`department_id` = '$get_department_id' ";
+                        WHERE `department_tbl`.`department_id` = '$get_department_id' ";
       
         $check_department = mysqli_query($connectionString,$sql_check_department)
                              or die(mysqli_error($connectionString));
@@ -25,3 +25,4 @@ require_once '../config/dbConnect.php';
             echo "success";
         }
         }
+        ?>
