@@ -62,42 +62,44 @@
                 </div> <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-            <!-- sample modal content -->
-            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title mt-0" id="myModalLabel">Edit Department</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="" id="edit-department" method="POST">
-                                <input type="hidden" name="depart_id" value="" id="depart_id">
-                                <div class="row">
-                                    <div class="col-md-12 mb-3">
-                                        <label for="edit-department-name">Name</label>
-                                        <input type="text" name="department_name" class="form-control edit-department-name" id="edit-department-name" placeholder="Department Name" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
 
-
-                                </div>
-
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-outline-primary waves-effect waves-light">Update</button>
-                            </form>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                <!-- End Page-content -->
+<!-- sample modal content -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title mt-0" id="myModalLabel">Edit Department</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form class="" id="edit-department" method="POST">
+    <input type="hidden" name="depart_id" value="" id="depart_id">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="edit-department-name">Name</label>
+                                                    <input type="text" name="department_name" class="form-control edit-department-name" id="edit-department-name" placeholder="Department Name"required>
+                                                    <div class="valid-feedback">
+                                                        Looks good!
+                                                    </div>
+                                                </div>
+                                               
+                                              
+                                            </div>
+                                           
+                                            
+                                        
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-outline-primary waves-effect waves-light">Update</button>
+</form>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 
@@ -134,7 +136,7 @@
                 } else {
 
                     $.ajax({
-                        url: 'api_calls/update-department-details.php',
+                        url: '../api_calls/update-department-details.php',
                         type: 'POST',
                         data: formdata,
                         success: function(res) {
@@ -164,11 +166,10 @@
 
 
                 var id = $(this).attr('id');
-
                 $('#depart_id').val(id);
 
                 $.ajax({
-                    url: 'api_calls/get-department-details.php',
+                    url: '../api_calls/get-department-details.php',
                     type: 'POST',
                     data: {
                         id: id
@@ -191,18 +192,19 @@
                 alertify.confirm("Are You Sure Want To Delete This Department",
                     function() {
                         $.ajax({
-                            url: 'api_calls/delete-department.php',
+                            url: '../api_calls/delete-department.php',
                             type: 'POST',
                             data: {
                                 id: id
                             },
                             success: function(res) {
 
-                                if (res === 'success') {
+                                if (res.trim() === 'success') {
                                     alertify.success("Deleted Successfully");
                                     fetchDepartments();
                                 } else {
                                     alertify.error("Something went wrong");
+                                    console.log(res) ;
                                 }
 
                             },
