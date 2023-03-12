@@ -11,10 +11,10 @@ require_once '../config/dbConnect.php';
                AND  password = '$get_password' LIMIT 1" ;
         
 
-        $query_1 = mysqli_query($connectionString,$sql) ;
+        $query = mysqli_query($connectionString,$sql) ;
 
-        if(mysqli_num_rows($query_1) > 0){
-            $user_details = mysqli_fetch_array($query_1);
+        if(mysqli_num_rows($query) > 0){
+            $user_details = mysqli_fetch_array($query);
 
              $username = $user_details['username'];
              $email = $user_details['email'];

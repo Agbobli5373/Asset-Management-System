@@ -106,7 +106,7 @@
                 success:function(res){
                 
                 if(res === "admin"){
-                
+                console.log(res)
                 window.location.href='admin/dashboard.php';
 
                 }else if(res === "not_exist"){
