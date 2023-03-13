@@ -128,68 +128,6 @@
 
             alertify.set('notifier', 'position', 'top-right');
 
-
-            $(document).on('click', '.btn-edit', function(e) {
-
-
-                var id = $(this).attr('id');
-                $('#depart_id').val(id);
-
-                $.ajax({
-                    url: '../api_calls/get-user-details.php',
-                    type: 'POST',
-                    data: {
-                        id: id
-                    },
-                    success: function(res) {
-
-                        $('.edit-user-name').val(res.name);
-                        $('#myModal').modal('show');
-                        console.log(res);
-                    },
-                    error: function(res) {
-                        console.log(res);
-                    }
-
-                });
-            })
-
-            $('#edit-user').submit(function(e) {
-                e.preventDefault();
-                var formdata = $(this).serialize();
-
-                if ($('.edit-user-name').val() === '') {
-                    alertify.error("Please Enter Name");
-                } else {
-
-                    $.ajax({
-                        url: '../api_calls/update-user-details.php',
-                        type: 'POST',
-                        data: formdata,
-                        success: function(res) {
-
-                            if (res === "success") {
-                                alertify.success("Updated Successfully");
-                                $('#myModal').modal('hide');
-                                fetchusers();
-
-                            } else if (res === "already") {
-                                alertify.error("Name Exists Already");
-
-                            }
-                        },
-                        error: function(res) {
-                            console.log(res);
-                        }
-
-                    });
-
-                }
-
-            });
-
-
-
             $(document).on('click', '.btn-delete', function(e) {
                 var id = $(this).attr('id');
                 alertify.confirm("Are You Sure Want To Delete This user",
@@ -204,7 +142,7 @@
 
                                 if (res.trim() === 'success') {
                                     alertify.success("Deleted Successfully");
-                                    fetchusers();
+                                    window.location.href = 'getUsers.php';
                                 } else {
                                     alertify.error("Something went wrong");
                                     console.log(res);
@@ -231,11 +169,7 @@
 
         });
 
-
-        function fetchusers() {
-            $('.loadTable').load('../api_calls/fetch-users.php');
-        }
-    </script> -->
+    </script> 
 
 
 </body>
