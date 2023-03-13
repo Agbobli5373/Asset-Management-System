@@ -1,6 +1,7 @@
 
 <?php
 require_once '../config/dbConnect.php';
+
 $get_user_name = $_POST['name'];
 $get_user_department = $_POST['department'];
 $get_user_email = $_POST['email'];

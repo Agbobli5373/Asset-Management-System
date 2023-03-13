@@ -42,7 +42,7 @@
                                                                     <h4 class="header-title">Add New User</h4>
 
 
-                                                                    <form class="mt-4" id="add-student" method="POST">
+                                                                    <form class="mt-4" id="add-user" method="POST">
                                                                         <div class="row">
                                                                             <div class="col-md-6 mb-3">
                                                                                 <label for="name">Full Name</label>
@@ -146,12 +146,53 @@
                                     </div>
                                     <!-- END layout-wrapper -->
 
-
-
                                     <!-- Right bar overlay-->
                                     <div class="rightbar-overlay"></div>
 
                                     <?php require_once("../share/script.php") ?>
+                                    <script type='text/javascript'>
+                $(document).ready(function() {
+
+                    alertify.set('notifier', 'position', 'top-right');
+                    $('#add-user').submit(function(e) {
+                        e.preventDefault();
+                        var formdata = $(this).serialize();
+                        if ($('.name').val() === '') {
+                            alertify.error("Please Enter Name");
+                        } else {
+
+                            $.ajax({
+                                url: '../api_calls/add-user.php',
+                                type: 'POST',
+                                data: formdata,
+                                success: function(res) {
+                                    if (res.trim() === "success") {
+                                        $('.name').val('');
+                                        $('.email').val('');
+                                        $('.password').val('');
+                                        alertify.success("Added Successfully");
+
+                                    } else if (res.trim() === "already") {
+                                        alertify.error("Name Exists Already");
+
+                                    }
+
+                                },
+                                error: function(res) {
+                                    console.log(res);
+                                }
+
+                            });
+
+                        }
+
+                    })
+
+
+
+                });
+            </script>
+
 
                                 </body>
 

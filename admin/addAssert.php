@@ -137,6 +137,8 @@
                         </div>
                     </div>
                     <!-- end row -->
+
+
                     <?php require_once '../share/footer.php'; ?>
 
                 </div>
@@ -152,7 +154,7 @@
 
             <?php require_once("../share/script.php") ?>
 
-            
+
             <script type='text/javascript'>
                 $(document).ready(function() {
 
