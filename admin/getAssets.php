@@ -85,8 +85,8 @@
                                                         <td><?php echo $get_asset_depreciated;  ?></td>
                                                         <td><?php echo $get_asset_createdDate;  ?></td>
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id='.$get_user_Id ; ?>" id="<?php echo $get_user_Id  ?>">Edit</a>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button>
+                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Edit</a>
+                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_asset_Id  ?>">Delete</button>
                                                         </td>
 
                                                     </tr>
@@ -134,10 +134,10 @@
 
             $(document).on('click', '.btn-delete', function(e) {
                 var id = $(this).attr('id');
-                alertify.confirm("Are You Sure Want To Delete This user",
+                alertify.confirm("Are You Sure Want To Delete This Asset",
                     function() {
                         $.ajax({
-                            url: '../api_calls/delete-user.php',
+                            url: '../api_calls/delete-asset.php',
                             type: 'POST',
                             data: {
                                 id: id
@@ -146,7 +146,7 @@
 
                                 if (res.trim() === 'success') {
                                     alertify.success("Deleted Successfully");
-                                    window.location.href = 'getUsers.php';
+                                    window.location.href = 'getAssets.php';
                                 } else {
                                     alertify.error("Something went wrong");
                                     console.log(res);
