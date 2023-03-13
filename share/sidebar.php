@@ -114,7 +114,7 @@
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
                            <li><a href="../admin/addUser.php">Add User</a></li>
-                           <li><a href="../admin/users.php">View Users</a></li>
+                           <li><a href="../admin/getUsers.php">View Users</a></li>
                        </ul>
                    </li>
                    <li>
