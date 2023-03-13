@@ -81,7 +81,7 @@
                                                         <td><?php echo $get_user_createdDate;  ?></td>
                                                         <td><?php echo $get_user_password;  ?></td>
                                                         <td>
-                                                            <button type="button" class="btn btn-outline-success btn-sm btn-edit" id="<?php echo $get_user_Id  ?>">Edit</button>
+                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id='.$get_user_Id ; ?>" id="<?php echo $get_user_Id  ?>">Edit</a>
                                                             <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button>
                                                         </td>
 
@@ -100,43 +100,7 @@
                     </div>
 
                     <!-- End Page-content -->
-                    <!-- sample modal content -->
-                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title mt-0" id="myModalLabel">Edit category</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="" id="edit-category" method="POST">
-                                        <input type="hidden" name="depart_id" value="" id="depart_id">
-                                        <div class="row">
-                                            <div class="col-md-12 mb-3">
-                                                <label for="edit-category-name">Name</label>
-                                                <input type="text" name="category_name" class="form-control edit-category-name" id="edit-category-name" placeholder="category Name" required>
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-outline-primary waves-effect waves-light">Update</button>
-                                    </form>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
+                    
 
 
 
@@ -157,10 +121,10 @@
             <?php require_once("../share/script.php") ?>
 
 
-            <!--    <script type='text/javascript'>
+        <script type='text/javascript'>
         $(document).ready(function() {
 
-            fetchcategorys();
+
 
             alertify.set('notifier', 'position', 'top-right');
 
@@ -172,14 +136,14 @@
                 $('#depart_id').val(id);
 
                 $.ajax({
-                    url: '../api_calls/get-category-details.php',
+                    url: '../api_calls/get-user-details.php',
                     type: 'POST',
                     data: {
                         id: id
                     },
                     success: function(res) {
 
-                        $('.edit-category-name').val(res.name);
+                        $('.edit-user-name').val(res.name);
                         $('#myModal').modal('show');
                         console.log(res);
                     },
@@ -190,16 +154,16 @@
                 });
             })
 
-            $('#edit-category').submit(function(e) {
+            $('#edit-user').submit(function(e) {
                 e.preventDefault();
                 var formdata = $(this).serialize();
 
-                if ($('.edit-category-name').val() === '') {
+                if ($('.edit-user-name').val() === '') {
                     alertify.error("Please Enter Name");
                 } else {
 
                     $.ajax({
-                        url: '../api_calls/update-category-details.php',
+                        url: '../api_calls/update-user-details.php',
                         type: 'POST',
                         data: formdata,
                         success: function(res) {
@@ -207,7 +171,7 @@
                             if (res === "success") {
                                 alertify.success("Updated Successfully");
                                 $('#myModal').modal('hide');
-                                fetchcategorys();
+                                fetchusers();
 
                             } else if (res === "already") {
                                 alertify.error("Name Exists Already");
@@ -228,10 +192,10 @@
 
             $(document).on('click', '.btn-delete', function(e) {
                 var id = $(this).attr('id');
-                alertify.confirm("Are You Sure Want To Delete This category",
+                alertify.confirm("Are You Sure Want To Delete This user",
                     function() {
                         $.ajax({
-                            url: '../api_calls/delete-category.php',
+                            url: '../api_calls/delete-user.php',
                             type: 'POST',
                             data: {
                                 id: id
@@ -240,7 +204,7 @@
 
                                 if (res.trim() === 'success') {
                                     alertify.success("Deleted Successfully");
-                                    fetchcategorys();
+                                    fetchusers();
                                 } else {
                                     alertify.error("Something went wrong");
                                     console.log(res);
@@ -258,7 +222,7 @@
                     }).set('labels', {
                     ok: 'Yes, Delete!',
                     cancel: 'Not Today'
-                }).set('movable', 'true').setHeader('Delete category');
+                }).set('movable', 'true').setHeader('Delete user');
             })
 
 
@@ -268,8 +232,8 @@
         });
 
 
-        function fetchcategorys() {
-            $('.loadTable').load('../api_calls/fetch-categorys.php');
+        function fetchusers() {
+            $('.loadTable').load('../api_calls/fetch-users.php');
         }
     </script> -->
 
