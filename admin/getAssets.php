@@ -71,7 +71,7 @@
                                                     $get_asset_category = $eachAsset['category_name'];
                                                     $get_asset_department = $eachAsset['department_name'];
                                                     $get_asset_price = $eachAsset['asset_price'];
-                                                    $get_asset_depreciated = floatval($eachAsset['asset_price']) - Year(floatval($eachAsset['asset_timestamp'])) * $eachAsset['depreciated_rate'];
+                                                    $get_asset_depreciated = floatval($eachAsset['asset_price'] - floatval(date("Y", strtotime($eachAsset['asset_timestamp']))-date("Y")) * $eachAsset['depreciated_rate']);
                                                     $get_asset_createdDate = $eachAsset['asset_timestamp'];
               
 
