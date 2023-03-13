@@ -113,8 +113,8 @@
                            <span>Users</span>
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
+                           <li><a href="../admin/getUsers.php">Users</a></li>
                            <li><a href="../admin/addUser.php">Add User</a></li>
-                           <li><a href="../admin/getUsers.php">View Users</a></li>
                        </ul>
                    </li>
                    <li>
@@ -123,8 +123,8 @@
                            <span>Assert</span>
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
-                           <li><a href="../admin/addAssert.php">Add Assert</a></li>
-                           <li><a href="uncleared-student-view.php">View Asserts</a></li>
+                           <li><a href="../admin/getAssets.php">Assets</a></li>
+                           <li><a href="../admin/addAssert.php">Add Asset</a></li>
                        </ul>
                    </li>
                    <li>
@@ -155,8 +155,8 @@
                            <span>Reports</span>
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
-                           <li><a href="cleared-student-view.php">Cleared Students</a></li>
-                           <li><a href="uncleared-student-view.php">Uncleared Student</a></li>
+                           <li><a href="cleared-student-view.php">Report</a></li>
+                           <li><a href="uncleared-student-view.php">Report</a></li>
                        </ul>
                    </li>
 

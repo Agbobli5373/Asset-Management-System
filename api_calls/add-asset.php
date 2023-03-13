@@ -6,7 +6,7 @@ $get_asset_name = $_POST['name'];
 $get_asset_category = $_POST['category'];
 $get_department = $_POST['department'];
 $get_asset_price = $_POST['price'];
-$get_asset_depreciate_rate = $_POST['depreciate'];
+$get_asset_depreciate_rate = floatval($_POST['depreciate'])/100;
 $get_asset_quantity = $_POST['quantity'];
 $get_asset_details = $_POST['detail'];
 
