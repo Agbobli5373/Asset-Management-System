@@ -1,7 +1,8 @@
                                 <!doctype html>
                                 <html lang="en">
-                               <?php $title = "Add User" ?>
-                               <?php require_once '../share/head.php'; ?>
+                                <?php $title = "Add User" ?>
+                                <?php require_once '../share/head.php'; ?>
+                                <?php require_once '../config/dbConnect.php'; ?>
 
                                 <body data-sidebar="dark">
 
@@ -52,11 +53,26 @@
                                                                             </div>
 
                                                                             <div class="col-md-6 mb-3">
-                                                                                <label for="index_number">Department</label>
-                                                                                <input type="text" name="department" class="form-control department" id="department" placeholder="Department" required>
-                                                                                <div class="valid-feedback">
-                                                                                    Looks good!
-                                                                                </div>
+                                                                                <label for="department">Department</label>
+                                                                                <select class="form-control" id="department" name="department">
+
+                                                                                    <?php
+
+                                                                                    $get_departments = mysqli_query($connectionString, "SELECT * FROM department_tbl") or die(mysqli_error($connectionString));
+
+                                                                                    while ($each_department = mysqli_fetch_array($get_departments)) {
+                                                                                        $department_id = $each_department['department_id'];
+                                                                                        $department_name = $each_department['department_name'];
+
+                                                                                    ?>
+
+                                                                                        <option value="<?php echo $department_id; ?>"><?php echo $department_name;  ?></option>
+
+
+                                                                                    <?php  }    ?>
+
+
+                                                                                </select>
                                                                             </div>
                                                                         </div>
                                                                         <div class="row">
@@ -88,14 +104,23 @@
 
                                                                             <div class="col-md-6 mb-3">
                                                                                 <label for="role">Role</label>
-                                                                                <input type="text" name="phone" class="form-control phone" id="phone" placeholder="Role" required>
+                                                                                <select class="form-control" id="role" name="role">
+                                                                                    <option>
+                                                                                        user
+                                                                                    </option>
+                                                                                    <option>
+                                                                                        admin
+                                                                                    </option>
+                                                                                </select>
                                                                                 <div class="valid-feedback">
                                                                                     Looks good!
                                                                                 </div>
                                                                             </div>
 
                                                                         </div>
-                                                                </div >
+                                                                        <button class="btn btn-primary text-center" type="submit">Add User</button>
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

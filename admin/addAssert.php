@@ -137,9 +137,6 @@
                         </div>
                     </div>
                     <!-- end row -->
-
-
-
                     <?php require_once '../share/footer.php'; ?>
 
                 </div>
