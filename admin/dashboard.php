@@ -31,7 +31,7 @@
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-6 col-sm-12" >
                             <div class="card">
                                 <div class="card-body">
                                     <div class="media">
@@ -137,7 +137,7 @@
                                                     <div class="col-12 text-center">
                                                         <p class="text-info">Add User</p>
                                                         <p class="text-secondary"></p>
-                                                        <a class="btn btn-info mt-2 px-4" href="add-student.php">Click Here</a>
+                                                        <a class="btn btn-info mt-2 px-4" href="addUser.php">Click Here</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -153,9 +153,9 @@
                                                 </div>
                                                 <div class="row mt-3">
                                                     <div class="col-12 text-center">
-                                                        <p class="text-info">Add Categorie</p>
+                                                        <p class="text-info">Add Category</p>
                                                         <p class="text-secondary"></p>
-                                                        <a class="btn btn-warning mt-2 px-4" href="add-clearer.php">Click Here</a>
+                                                        <a class="btn btn-warning mt-2 px-4" href="addCategory.php">Click Here</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,7 +191,7 @@
                                                     <div class="col-12 text-center">
                                                         <p class="text-info">Add Assert</p>
                                                         <p class="text-secondary"></p>
-                                                        <a class="btn btn-danger mt-2 px-4" href="add-programme.php">Click Here</a>
+                                                        <a class="btn btn-danger mt-2 px-4" href="addAssert.php">Click Here</a>
                                                     </div>
                                                 </div>
                                             </div>

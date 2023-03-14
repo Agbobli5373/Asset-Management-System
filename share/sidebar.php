@@ -4,6 +4,8 @@
     header("Location: ../index.php");
     exit() ;
   }
+
+  require_once '../api_calls/counter.php' ;
 ?>
 <header id="page-topbar">
        <div class="navbar-header">
@@ -80,8 +82,9 @@
                    <div class="dropdown-menu dropdown-menu-right">
                        <!-- item-->
 
-
-                       <a class="dropdown-item" href="index.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                       <a class="dropdown-item" href="getProfile.php"><i class="fa fa-user font-size-16 align-middle mr-1"></i> Profile</a>
+                  
+                       <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
                    </div>
                </div>
 
@@ -159,17 +162,22 @@
                    <li>
                        <a href="javascript: void(0);" class="has-arrow waves-effect">
                            <i class="mdi mdi-file-document"></i>
-                           <span>Reports</span>
+                           <span>Complain</span>
+                           
+                                            <span class="avatar-sm rounded-circle p-1 px-2 bg-danger">
+                                                <?php echo $complainNumber ?></span>
+                                            
+                           
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
-                           <li><a href="cleared-student-view.php">Report</a></li>
-                           <li><a href="uncleared-student-view.php">Report</a></li>
+                           <li><a href="cleared-student-view.php">New Complain</a></li>
+                           <li><a href="uncleared-student-view.php">Resolved Complain</a></li>
                        </ul>
                    </li>
 
 
                    <li>
-                       <a href="index.php" class=" waves-effect">
+                       <a href="../index.php" class=" waves-effect">
                            <i class="mdi mdi-lock"></i>
                            <span>Logout</span>
                        </a>
