@@ -1,6 +1,8 @@
 <?php
+
 require_once '../config/dbConnect.php';
 require_once '../api_calls/utils.php';
+
 
 
 
@@ -27,7 +29,12 @@ if (mysqli_num_rows($query) > 0) {
     setcookie('username', $username, time() + 2 * 24 * 60 * 60, '/');
     setcookie('email', $email, time() + 2 * 24 * 60 * 60, '/');
     setcookie('role', $role, time() + 2 * 24 * 60 * 60, '/');
-    setcookie('department_id', $departmet_id, time() + 2 * 24 * 60 * 60, '/');
+    setcookie('department_id', $departmet_id, time() + 2 * 24 * 60 * 60, '/'); 
+
+    $_SESSION['username'] = $username ;
+    $_SESSION['email'] = $email ;
+    $_SESSION['role'] = $role ;
+    $_SESSION['department_id'] = $departmet_id ;
 
     if ($role == 'admin') {
         echo "admin";
