@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php $title = "Add User" ?>
+<?php $title = "Asset Category" ?>
 <?php require_once '../share/head.php'; ?>
 
 <body data-sidebar="dark">

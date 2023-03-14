@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php $title = "Add User" ?>
+<?php $title = "Users" ?>
 <?php require_once '../share/head.php'; ?>
 <?php require_once '../config/dbConnect.php'; ?>
 

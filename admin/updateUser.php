@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 
-$title = "Add User" ?>
+$title = "Update User" ?>
 <?php require_once '../share/head.php'; ?>
 <?php require_once '../config/dbConnect.php'; ?>
 <?php
@@ -41,9 +41,7 @@ while ($user = mysqli_fetch_array($query)) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
-                                <h4 class="mb-0 font-size-18">Users</h4>
-
-
+                                <h4 class="mb-0 font-size-18">Update User</h4>
 
                             </div>
                         </div>
@@ -134,7 +132,7 @@ while ($user = mysqli_fetch_array($query)) {
 
                                         </div>
                                         <input type="number" hidden name="user_id"  value="<?php echo $get_user_id ?>" />
-                                        <button class="btn btn-outline-primary waves-effect waves-light" type="submit" >Add User</button>
+                                        <button class="btn btn-outline-primary waves-effect waves-light" type="submit" >Update User</button>
                                         <a role="button" type="button" class="btn btn-outline-secondary waves-effec" href="getUsers.php">Close</a>
                                
                                     </div>

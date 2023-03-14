@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 
-$title = "Add asset" ?>
+$title = "Update Asset" ?>
 <?php require_once '../share/head.php'; ?>
 <?php require_once '../config/dbConnect.php'; ?>
 <?php
