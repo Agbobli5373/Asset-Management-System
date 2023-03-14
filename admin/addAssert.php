@@ -171,6 +171,7 @@
                                 type: 'POST',
                                 data: formdata,
                                 success: function(res) {
+                                    console.log(res);
                                     if (res.trim() === "success") {
                                         $('.name').val('');
                                         $('.price').val('');

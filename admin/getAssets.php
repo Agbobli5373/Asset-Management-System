@@ -51,6 +51,7 @@
                                                     <th scope="col">Category</th>
                                                     <th scope="col">Department</th>
                                                     <th scope="col">Price</th>
+                                                    <th scope="col">Qty</th>
                                                     <th scope="col">Depreciated Price</th>
                                                     <th scope="col">Date Created</th>
                                                     <th scope="col">Action</th>
@@ -71,6 +72,7 @@
                                                     $get_asset_category = $eachAsset['category_name'];
                                                     $get_asset_department = $eachAsset['department_name'];
                                                     $get_asset_price = $eachAsset['asset_price'];
+                                                    $get_asset_quantity = $eachAsset['asset_quantity'];
                                                     $get_asset_depreciated = floatval($eachAsset['asset_price'] - floatval(date("Y", strtotime($eachAsset['asset_timestamp']))-date("Y")) * $eachAsset['depreciated_rate']);
                                                     $get_asset_createdDate = $eachAsset['asset_timestamp'];
               
@@ -82,10 +84,11 @@
                                                         <td><?php echo $get_asset_category;  ?></td>
                                                         <td><?php echo  $get_asset_department;  ?></td>
                                                         <td><?php echo   $get_asset_price;  ?></td>
+                                                        <td><?php echo   $get_asset_quantity;  ?></td>
                                                         <td><?php echo $get_asset_depreciated;  ?></td>
                                                         <td><?php echo $get_asset_createdDate;  ?></td>
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Edit</a>
+                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateAsset.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Edit</a>
                                                             <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_asset_Id  ?>">Delete</button>
                                                         </td>
 

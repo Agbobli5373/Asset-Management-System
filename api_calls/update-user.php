@@ -28,3 +28,4 @@ $updateuser = mysqli_query($connectionString, "$sql_update") or die(mysqli_error
         echo "success";
     }
 
+?>
