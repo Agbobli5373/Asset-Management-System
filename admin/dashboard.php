@@ -3,6 +3,7 @@
 
 <?php $title = "Dashboard | Asset Management System"; ?>
 <?php require_once '../share/head.php';  ?>
+<?php require_once '../api_calls/counter.php' ?>
 
 <body data-sidebar="dark">
 
@@ -35,7 +36,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Categories</h5>
+                                            <h5 class="font-size-14">Number of Asset Categories</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -43,7 +44,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 1;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $categoryNumber;  ?></h4>
 
                                     <p class="py-2"></p>
 
@@ -64,7 +65,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 2;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $departmentNumber;  ?></h4>
                                     <p class="py-2"></p>
 
                                 </div>
@@ -76,7 +77,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Demage Assert</h5>
+                                            <h5 class="font-size-14">Number of Users</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -84,7 +85,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 4;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $userNumber;  ?></h4>
                                     <p class="py-2"></p>
 
                                 </div>
@@ -104,7 +105,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 5;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $assetNumber;  ?></h4>
 
                                     <p class="py-2"></p>
 
