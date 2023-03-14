@@ -72,12 +72,12 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="../assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1"><?php echo "Depertment Officer"  ?></span>
+                                <span class="d-none d-sm-inline-block ml-1"><?php echo $_COOKIE['username']  ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- item-->
-                               
+                                <a class="dropdown-item" href="getProfile.php"><i class="fa fa-user font-size-16 align-middle mr-1"></i> Profile</a>
                                
                                 <a class="dropdown-item" href="index.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
                             </div>
@@ -107,15 +107,15 @@
             <li class="menu-title">Menu</li>
 
             <li>
-                <a href="dashboard.php" class="waves-effect">
+                <a href="../user/dashboard.php" class="waves-effect">
                     <i class="mdi mdi-monitor-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="dashboard.php" class="waves-effect">
+                <a href="../user/departmentAsset.php" class="waves-effect">
                     <i class="fa fa-landmark"></i>
-                    <span>Assert</span>
+                    <span>Department Asserts</span>
                 </a>
             </li>
             
@@ -123,11 +123,11 @@
              <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="mdi mdi-file-document"></i>
-                    <span>Reports</span>
+                    <span>Complain</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="cleared-student-view.php">Cleared Students</a></li>
-                    <li><a href="uncleared-student-view.php">Uncleared Student</a></li>
+                    <li><a href="cleared-student-view.php">New Complain</a></li>
+                    <li><a href="uncleared-student-view.php">Resolved Complain</a></li>
                 </ul>
             </li>
             
