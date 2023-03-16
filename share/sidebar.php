@@ -170,14 +170,14 @@
                            
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
-                           <li><a href="cleared-student-view.php">New Complain</a></li>
-                           <li><a href="uncleared-student-view.php">Resolved Complain</a></li>
+                           <li><a href="getComplain.php">New Complain</a></li>
+                           <li><a href="getResolvedComplain.php">Resolved Complain</a></li>
                        </ul>
                    </li>
 
 
                    <li>
-                       <a href="../index.php" class=" waves-effect">
+                       <a href="logout.php" class=" waves-effect">
                            <i class="mdi mdi-lock"></i>
                            <span>Logout</span>
                        </a>
