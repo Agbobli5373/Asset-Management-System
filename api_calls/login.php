@@ -26,15 +26,17 @@ if (mysqli_num_rows($query) > 0) {
     $role = $user_details['role'];
     $departmet_id = $user_details['department_id'];
 
-    setcookie('username', $username, time() + 2 * 24 * 60 * 60, '/');
-    setcookie('email', $email, time() + 2 * 24 * 60 * 60, '/');
-    setcookie('role', $role, time() + 2 * 24 * 60 * 60, '/');
-    setcookie('department_id', $departmet_id, time() + 2 * 24 * 60 * 60, '/'); 
-
     $_SESSION['username'] = $username ;
     $_SESSION['email'] = $email ;
     $_SESSION['role'] = $role ;
-    $_SESSION['department_id'] = $departmet_id ;
+    $_SESSION['department_id'] = $departmet_id ; 
+
+    setcookie('username', $username, time() + 3600, '/');
+    setcookie('email', $email, time() + 3600, '/');
+    setcookie('role', $role, time() + 3600, '/');
+    setcookie('department_id', $departmet_id, time() + 3600, '/'); 
+
+   
 
     if ($role == 'admin') {
         echo "admin";

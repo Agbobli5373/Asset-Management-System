@@ -1,6 +1,12 @@
+<?php if(isset($_COOKIE['role']) == 'admin'){
+    header("Location: admin/dashboard.php");
+} elseif(isset($_COOKIE['role']) == 'user') {
+    header("Location: user/dashboard.php");
+}?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start() ; ?>
+
 <head>
   <meta charset="utf-8" />
   <title>Login | Asset Management System</title>

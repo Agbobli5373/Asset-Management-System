@@ -14,6 +14,7 @@
     <!-- alertifyjs default themes  Css -->
     <link href="../assets/libs/alertifyjs/build/css/themes/default.min.css" rel="stylesheet" type="text/css" />
     <!-- slick css -->
+    <?php session_start();?>
     <link href="../assets/libs/slick-slider/slick/slick.css" rel="stylesheet" type="text/css" />
     <link href="../assets/libs/slick-slider/slick/slick-theme.css" rel="stylesheet" type="text/css" />
 

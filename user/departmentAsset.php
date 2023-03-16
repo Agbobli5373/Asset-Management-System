@@ -89,8 +89,10 @@
                                                         <td><?php echo $get_asset_depreciated;  ?></td>
                                                         <td><?php echo $get_asset_createdDate;  ?></td>
                                                         <td>
-                                                            <button role="button" type="button" class="btn btn-outline-success btn-sm btn-edit"  id="<?php echo $get_asset_Id  ?>">Complain</a>
-                                                                           </td>
+                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_asset_Id  ?>">Complain</button>
+                                                            <button type="button" class="btn btn-outline-success btn-sm btn-edit"  id="<?php echo $get_asset_Id  ?>">Resolved</a>
+                                                            
+                                                        </td>
 
                                                     </tr>
 
