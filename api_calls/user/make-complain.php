@@ -9,21 +9,29 @@ $get_department_id = $_COOKIE['department_id'];
 //first check if category already exists 
 
 $check_complain_sql = "SELECT * 
-        FROM `category_tbl` 
-        WHERE `category_name` = '$get_category_name' 
+        FROM `complain_tbl` 
+        WHERE `asset_id` = '$get_asset_id' AND `isResolved` = 'NO'
         LIMIT 1" ;
 
-$insert_category_sql = "INSERT 
-        INTO `category_tbl` (`category_name`, `category_timestamp`) 
-        VALUES ('$get_category_name', current_timestamp())";
+$upadet_complain_sql = "UPDATE  `complain_tbl` 
+         WHERE  `asset_id` = '$get_asset_id' 
+         LIMIT 1";
 
-$check_category = mysqli_query($connectionString,$check_category_sql)or die(mysqli_error($connectionString));
+$insert_complain_sql = "INSERT 
+        INTO `camplain_tbl` (`complain_detail`, `asset_id`, `user_id`, `department_id`, `isResolve`,`camplain_timestamp`) 
+        VALUES ('$get_complain_detail','$get_asset_id','$get_user_id','$get_department_id','NO',current_timestamp())";
+
+$check_camplain = mysqli_query($connectionString,$check_camplain_sql)or 
+                  die(mysqli_error($connectionString));
 
 if(mysqli_num_rows($check_category) > 0){
-     echo "already";
+
+     $update_complain = mysqli_query($connectionString, $upadet_complain_sql) or
+     die(mysqli_error($connectionString)) ;
+     $update_complain ? "updated" : "Erro" ;
+
 }else{	
-$addcategory = mysqli_query($connectionString,$insert_category_sql) or die(mysqli_error($connectionString));
-if($addcategory){
-    echo "success";
-}
+     $addcomplain = mysqli_query($connectionString,$insert_compalin_sql) 
+     or die(mysqli_error($connectionString));
+     $addcomplain ? "succcss" : "Error";
 }  ?>
