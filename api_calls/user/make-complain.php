@@ -29,10 +29,14 @@ if(mysqli_num_rows($check_category) > 0){
 
      $update_complain = mysqli_query($connectionString, $upadet_complain_sql) or
      die(mysqli_error($connectionString)) ;
-     $update_complain ? "updated" : "Erro" ;
+     if($update_complain){
+        echo "success" ;
+     }
 
 }else{	
      $addcomplain = mysqli_query($connectionString,$insert_compalin_sql) 
      or die(mysqli_error($connectionString));
-     $addcomplain ? "succcss" : "Error";
+     if($add_complain){
+        echo "success" ;
+     }
 }  ?>
