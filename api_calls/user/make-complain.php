@@ -14,6 +14,7 @@ $check_complain_sql = "SELECT *
         LIMIT 1" ;
 
 $upadet_complain_sql = "UPDATE  `complain_tbl` 
+         SET  `complain_detail` = '$get_complain_detail', `user_id` = '$get_user_id'
          WHERE  `asset_id` = '$get_asset_id' 
          LIMIT 1";
 
