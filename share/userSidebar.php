@@ -121,8 +121,8 @@
                            <span>Complain</span>
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
-                           <li><a href="getComplain.php">New Complain</a></li>
-                           <li><a href="getResolvedComplain.php">Resolved Complain</a></li>
+                           <li><a href="../user/getcomplain.php">New Complain</a></li>
+                           <li><a href="../user/getResolvedComplain.php">Resolved Complain</a></li>
                        </ul>
                    </li>
 
