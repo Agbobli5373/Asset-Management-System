@@ -91,8 +91,8 @@
                                                         <td>
                                                         <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'addComplain.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Make Compalain</a>
 
-                                                            <button type="button" class="btn btn-outline-success btn-sm btn-edit"  id="<?php echo $get_asset_Id  ?>">Resolved</a>
-                                                            
+                                                          <!--  <button type="button" class="btn btn-outline-success btn-sm btn-edit"  id="<?php echo $get_asset_Id  ?>">Resolved</a>
+                                                -->
                                                         </td>
 
                                                     </tr>
