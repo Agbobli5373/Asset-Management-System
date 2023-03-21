@@ -25,6 +25,7 @@ if (mysqli_num_rows($query) > 0) {
     $email = $user_details['email'];
     $role = $user_details['role'];
     $departmet_id = $user_details['department_id'];
+    $user_id = $user_details['user_id'];
 
     $_SESSION['username'] = $username ;
     $_SESSION['email'] = $email ;
@@ -35,6 +36,7 @@ if (mysqli_num_rows($query) > 0) {
     setcookie('email', $email, time() + 3600, '/');
     setcookie('role', $role, time() + 3600, '/');
     setcookie('department_id', $departmet_id, time() + 3600, '/'); 
+    setcookie('user_id', $user_id, time() + 3600, '/'); 
 
    
 

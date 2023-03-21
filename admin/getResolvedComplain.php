@@ -62,7 +62,7 @@
                                                                                                  *
                                                                                                  FROM
                                                                                                 `complain_tbl`
-                                                                                                 JOIN user_tbl ON complain_tbl.asset_id = user_tbl.user_id
+                                                                                                 JOIN user_tbl ON complain_tbl.user_id = user_tbl.user_id
                                                                                                  JOIN department_tbl ON complain_tbl.department_id = department_tbl.department_id
                                                                                                  JOIN asset_tbl ON complain_tbl.asset_id = asset_tbl.asset_id
                                                                                                  WHERE isResolve = 'YES'
@@ -71,12 +71,12 @@
                                                     or die(mysqli_error($connectionString));
                                                 while ($eachComplain = mysqli_fetch_array($getComplains)) {
 
-                                                    $get_comaplain_Id = $eachComplain['compalin_id'];
+                                                    $get_comaplain_Id = $eachComplain['complain_id'];
                                                     $get_asset = $eachComplain['asset_name'];
-                                                    $get_complain_name =  $eachComplain['detail'];
+                                                    $get_complain_name =  $eachComplain['complain_detail'];
                                                     $get_user_department = $eachComplain['department_name'];
                                                     $get_user =  $eachComplain['username'];
-                                                    $get_compalin_createdDate = $eachComplain['complain_timestamp'];
+                                                    $get_complain_createdDate = $eachComplain['complain_timestamp'];
 
 
                                                 ?>
@@ -89,8 +89,8 @@
                                                         <td><?php echo $get_complain_createdDate;  ?></td>
                                                         
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id=' . $get_user_Id; ?>" id="<?php echo $get_user_Id  ?>">Edit</a>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button>
+                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id=' . $get_user_Id; ?>" id="<?php echo $get_user_Id  ?>">View</a>
+                                                            <!--<button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button> -->
                                                         </td>
 
                                                     </tr>

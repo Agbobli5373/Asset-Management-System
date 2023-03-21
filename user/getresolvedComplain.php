@@ -71,7 +71,7 @@
                                                                                                  JOIN user_tbl ON complain_tbl.asset_id = user_tbl.user_id
                                                                                                  JOIN department_tbl ON complain_tbl.department_id = department_tbl.department_id
                                                                                                  JOIN asset_tbl ON complain_tbl.asset_id = asset_tbl.asset_id
-                                                                                                 WHERE isResolve = 'YES' AND  department_name = '$department_name' 
+                                                                                                 WHERE isResolve = `1` AND  department_name = '$department_name' 
                                                                                                  ORDER BY
                                                                                                  complain_tbl.complain_timestamp ASC;")
                                                     or die(mysqli_error($connectionString));

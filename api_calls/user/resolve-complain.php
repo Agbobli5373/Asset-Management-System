@@ -11,7 +11,7 @@ $get_department_id = $_COOKIE['department_id'];
 
 
 $resolved_complain_sql = "UPDATE  `complain_tbl` 
-         SET  `isResolved` = 'YES'
+         SET  `isResolved` = `1`
          WHERE  `complain_id` = '$get_comaplain_id' 
          LIMIT 1";
 

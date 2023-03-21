@@ -1,3 +1,11 @@
+<?php 
+  if($_COOKIE['role']  != 'user'){
+    header("Location: ../index.php");
+    exit() ;
+  }
+
+  require_once '../api_calls/counter.php' ;
+?>
    <header id="page-topbar">
        <div class="navbar-header">
            <div class="d-flex">
