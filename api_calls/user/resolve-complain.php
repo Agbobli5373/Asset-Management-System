@@ -1,17 +1,15 @@
 
 <?php
-require_once '../config/dbConnect.php';
-$get_comaplain_id = $_POST['complain_id'] ;
-$get_asset_id = $_POST['asset_id'] ;
-$get_user_id = $_COOKIE['user_id'];
-$get_department_id = $_COOKIE['department_id'];
+require_once '../../config/dbConnect.php';
+$get_comaplain_id = $_POST['id'] ;
+
 
 //first check if category already exists 
 
 
 
 $resolved_complain_sql = "UPDATE  `complain_tbl` 
-         SET  `isResolved` = `1`
+         SET  `isResolve` = 'YES'
          WHERE  `complain_id` = '$get_comaplain_id' 
          LIMIT 1";
 

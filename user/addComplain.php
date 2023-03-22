@@ -47,13 +47,9 @@
 
 
                                     <form class="mt-4" id="add-complain" method="POST">
-                                    <div class="row">
-                                            <div class="col-md-12 mb-3">
+                                    
                                                 <input type="text" name="asset_id" hidden class="form-control asset-name" id="validationCustom01" placeholder="" value="<?php echo $get_asset_id; ?>">
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
-                                            </div>
+                                               
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom01">Asset Name</label>

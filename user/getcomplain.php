@@ -95,8 +95,9 @@
                                                         <td><?php echo $get_complain_createdDate;  ?></td>
                                                         
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id=' . $get_user_Id; ?>" id="<?php echo $get_user_Id  ?>">Edit</a>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button>
+                                                            <!--<a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id=' . $get_user_Id; ?>" id="<?php echo $get_user_Id  ?>">Edit</a>
+                           -->                              <button type="button" class="btn btn-outline-success btn-sm btn-resolve"  id="<?php echo $get_comaplain_Id  ?>">Resolve</button>
+                              
                                                         </td>
 
                                                     </tr>
@@ -133,6 +134,61 @@
             <div class="rightbar-overlay"></div>
 
             <?php require_once("../share/script.php") ?>
+
+            <script type='text/javascript'>
+        $(document).ready(function() {
+
+
+            alertify.set('notifier', 'position', 'top-right');
+            $(document).on('click', '.btn-resolve', function(e) {
+                var id = $(this).attr('id');
+                alertify.confirm("Are You Sure Want To Resolved this Complain",
+                    function() {
+                        $.ajax({
+                            url: '../api_calls/user/resolve-complain.php',
+                            type: 'POST',
+                            data: {
+                                id: id
+                            },
+                            success: function(res) {
+
+                                if (res.trim() === 'resolved') {
+                                    alertify.success("Complain Resolved Successfully");
+                                    window.location.href='getcomplain.php'
+                                    
+                                } else {
+                                    alertify.error("Something went wrong");
+                                    console.log(res);
+                                }
+
+                            },
+                            error: function(res) {
+                                console.log(res);
+                            }
+
+                        });
+                    },
+                    function() {
+
+                    }).set('labels', {
+                    ok: 'Yes, Resolve!',
+                    cancel: 'Not Today'
+                }).set('movable', 'true').setHeader('Resolve Complain');
+            })
+
+
+
+
+
+        });
+
+
+        function fetchDepartments() {
+            $('.loadTable').load('../api_calls/fetch-departments.php');
+        }
+    </script>
+
+
 
 
            

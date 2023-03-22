@@ -22,7 +22,7 @@ $update_complain_sql = "UPDATE  `complain_tbl`
 
 $insert_complain_sql = "INSERT 
         INTO `complain_tbl` (`complain_detail`, `asset_id`, `user_id`, `department_id`, `isResolve`,`complain_timestamp`) 
-        VALUES ('$get_complain_detail','$get_asset_id','$get_user_id','$get_department_id',`0`,current_timestamp())";
+        VALUES ('$get_complain_detail','$get_asset_id','$get_user_id','$get_department_id','NO',current_timestamp())";
 
 $check_camplain = mysqli_query($connectionString,$check_complain_sql )or 
                   die(mysqli_error($connectionString));

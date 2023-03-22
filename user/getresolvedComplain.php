@@ -79,7 +79,7 @@
 
                                                     $get_comaplain_Id = $eachComplain['complain_id'];
                                                     $get_asset = $eachComplain['asset_name'];
-                                                    $get_complain_name =  $eachComplain['detail'];
+                                                    $get_complain_name =  $eachComplain['complain_detail'];
                                                     $get_user_department = $eachComplain['department_name'];
                                                     $get_user =  $eachComplain['username'];
                                                     $get_complain_createdDate = $eachComplain['complain_timestamp'];
