@@ -89,7 +89,7 @@
                                                         <td><?php echo $get_complain_createdDate;  ?></td>
                                                         
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id=' . $get_user_Id; ?>" id="<?php echo $get_user_Id  ?>">View</a>
+                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'viewComplain.php?id=' . $get_comaplain_Id; ?>" id="<?php echo $get_user_Id  ?>">View</a>
                                                             <!--<button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button> -->
                                                         </td>
 
