@@ -10,6 +10,10 @@
     <div id="layout-wrapper">
 
         <?php require_once '../share/userSidebar.php';  ?>
+        <?php 
+              require_once '../config/dbConnect.php' ;
+              require_once '../api_calls/counter.php' ;
+        ?>
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -35,7 +39,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Categories</h5>
+                                            <h5 class="font-size-14">Number of Department Assets</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -43,7 +47,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 1;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $dptAssetNumber;  ?></h4>
 
                                     <p class="py-2"></p>
 
@@ -56,7 +60,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Department</h5>
+                                            <h5 class="font-size-14">Number of New Complain</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -64,7 +68,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 2;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $dptComplainNumber;  ?></h4>
                                     <p class="py-2"></p>
 
                                 </div>
@@ -76,7 +80,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Demage Assert</h5>
+                                            <h5 class="font-size-14">Number of Resolved Complain</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -84,7 +88,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo 4;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $dptResolveNumber;  ?></h4>
                                     <p class="py-2"></p>
 
                                 </div>
@@ -96,7 +100,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Asserts</h5>
+                                            <h5 class="font-size-14">Number of Asserts Requested</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
