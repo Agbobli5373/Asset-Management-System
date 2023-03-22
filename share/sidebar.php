@@ -160,6 +160,12 @@
                        </ul>
                    </li>
                    <li>
+                       <a href="../admin/requestedAsset.php" class="waves-effect">
+                           <i class="fa fa-landmark"></i>
+                           <span>Requested Asserts</span>
+                       </a>
+                   </li>
+                   <li>
                        <a href="javascript: void(0);" class="has-arrow waves-effect">
                            <i class="mdi mdi-file-document"></i>
                            <span>Complain</span>

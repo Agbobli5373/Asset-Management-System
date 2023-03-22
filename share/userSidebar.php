@@ -122,6 +122,13 @@
                        </a>
                    </li>
 
+                   <li>
+                       <a href="../user/requestAsset.php" class="waves-effect">
+                           <i class="fa fa-landmark"></i>
+                           <span>Request Assert</span>
+                       </a>
+                   </li>
+
 
                    <li>
                        <a href="javascript: void(0);" class="has-arrow waves-effect">
