@@ -13,7 +13,7 @@
    $categorysql = mysqli_query($connectionString, "SELECT * FROM `category_tbl`;");
    $categoryNumber = mysqli_num_rows($categorysql);
 
-   $complainsql = mysqli_query($connectionString, "SELECT * FROM `complain_tbl`;");
+   $complainsql = mysqli_query($connectionString, "SELECT * FROM `complain_tbl` WHERE `isResolve` = 'NO';");
    $complainNumber = mysqli_num_rows($complainsql);
 
 
