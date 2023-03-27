@@ -41,7 +41,7 @@
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom01">Name</label>
-                                                <input type="text" name="asset_name" class="form-control category-name" id="validationCustom01" placeholder="category Name" required>
+                                                <input type="text" name="asset_name" class="form-control category-name" id="validationCustom01" placeholder="Asset Name" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -51,7 +51,7 @@
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom01">Reason for the request</label>
-                                                <input type="text" name="reason" class="form-control category-name" id="validationCustom01" placeholder="category Name" required>
+                                                <input type="text" name="reason" class="form-control category-name" id="validationCustom01" placeholder="Reason for the Asset" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
