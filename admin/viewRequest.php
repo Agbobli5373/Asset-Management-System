@@ -45,12 +45,9 @@
                                                 <tr>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Asset Name</th>
-                                                    <th scope="col">Category</th>
                                                     <th scope="col">Department</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Qty</th>
-                                                    <th scope="col">Depreciated Price</th>
-                                                    <th scope="col">Date Created</th>
+                                                    <th scope="col">Reason</th>
+                                                    <th scope="col">Date Requestd</th>
                                                     <th scope="col">Action</th>
 
                                                 </tr>
@@ -58,32 +55,26 @@
                                             <tbody>
                                                 <?php
                                                 $counter = 1;
-                                                $getAssets = mysqli_query($connectionString, "SELECT * FROM asset_tbl 
-                                                                            JOIN category_tbl on asset_tbl.category_id = category_tbl.category_id 
-                                                                            JOIN department_tbl on asset_tbl.department_id = department_tbl.department_id ORDER BY
-                                                                            asset_tbl.asset_id ASC") or die(mysqli_error($connectionString));
-                                                while ($eachAsset = mysqli_fetch_array($getAssets)) {
+                                                $getRequest = mysqli_query($connectionString, "SELECT * FROM request_tbl
+                                                                            JOIN department_tbl on request_tbl.department_id = department_tbl.department_id ORDER BY
+                                                                            request_tbl.request_timestamp ASC") or die(mysqli_error($connectionString));
+                                                while ($eachRequest = mysqli_fetch_array($getRequest)) {
 
-                                                    $get_asset_Id = $eachAsset['asset_id'];
-                                                    $get_asset_name = $eachAsset['asset_name'];
-                                                    $get_asset_category = $eachAsset['category_name'];
-                                                    $get_asset_department = $eachAsset['department_name'];
-                                                    $get_asset_price = $eachAsset['asset_price'];
-                                                    $get_asset_quantity = $eachAsset['asset_quantity'];
-                                                    $get_asset_depreciated = floatval($eachAsset['asset_price'] - floatval(date("Y", strtotime($eachAsset['asset_timestamp']))-date("Y")) * $eachAsset['depreciated_rate']);
-                                                    $get_asset_createdDate = $eachAsset['asset_timestamp'];
+                                        
+                                                    $get_asset_name = $eachRequest['asset_name'];
+                                                    $get_request_reason = $eachRequest['request_reason'];
+                                                    $get_asset_department = $eachRequest['department_name'];
+                                                    $get_asset_request_date = $eachRequest['request_timestamp'];
               
 
                                                 ?>
                                                     <tr>
                                                         <td><b><?php echo $counter;   ?></b></td>
                                                         <td><?php echo $get_asset_name;  ?></td>
-                                                        <td><?php echo $get_asset_category;  ?></td>
+                                                      
                                                         <td><?php echo  $get_asset_department;  ?></td>
-                                                        <td><?php echo   $get_asset_price;  ?></td>
-                                                        <td><?php echo   $get_asset_quantity;  ?></td>
-                                                        <td><?php echo $get_asset_depreciated;  ?></td>
-                                                        <td><?php echo $get_asset_createdDate;  ?></td>
+                                                        <td><?php echo   $get_request_reason;  ?></td>
+                                                        <td><?php echo $get_asset_request_date;  ?></td>
                                                         <td>
                                                             <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateAsset.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Edit</a>
                                                             <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_asset_Id  ?>">Delete</button>
