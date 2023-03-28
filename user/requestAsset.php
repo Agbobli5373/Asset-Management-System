@@ -37,11 +37,11 @@
                                     <h4 class="header-title">Make Request</h4>
 
 
-                                    <form class="mt-4" id="add-category" method="POST">
+                                    <form class="mt-4" id="add-request" method="POST">
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom01">Name</label>
-                                                <input type="text" name="asset_name" class="form-control category-name" id="validationCustom01" placeholder="Asset Name" required>
+                                                <input type="text" name="asset_name" class="form-control request-name" id="validationCustom01" placeholder="Asset Name" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -51,7 +51,7 @@
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
                                                 <label for="validationCustom01">Reason for the request</label>
-                                                <input type="text" name="reason" class="form-control category-name" id="validationCustom01" placeholder="Reason for the Asset" required>
+                                                <input type="text" name="reason" class="form-control reason" id="validationCustom01" placeholder="Reason for the Asset" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -89,24 +89,23 @@
                 $(document).ready(function() {
 
                     alertify.set('notifier', 'position', 'top-right');
-                    $('#add-category').submit(function(e) {
+                    $('#add-request').submit(function(e) {
                         e.preventDefault();
                         var formdata = $(this).serialize();
-                        if ($('.category-name').val() === '') {
-                            alertify.error("Please Enter Name");
+                        if ($('.asset_name').val() === '') {
+                            alertify.error("Please Enter Asset Name");
                         } else {
-
                             $.ajax({
-                                url: '../api_calls/add-category.php',
+                                url: '../api_calls/user/make-request.php',
                                 type: 'POST',
                                 data: formdata,
                                 success: function(res) {
                                     if (res.trim() === "success") {
-                                        $('.category-name').val('');
-                                        alertify.success("Added Successfully");
+                                        $('.asset-name').val('');
+                                        alertify.success("Request Sent Successfully");
 
                                     } else if (res.trim() === "already") {
-                                        alertify.error("Name Exists Already");
+                                        alertify.error("Request Sent Already");
 
                                     }
 

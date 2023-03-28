@@ -7,9 +7,9 @@ $get_department_id = $_COOKIE['department_id'];
 
 
 
-$check_requset_sql = "SELECT * 
+$check_request_sql = "SELECT * 
         FROM `request_tbl` 
-        WHERE `asset_name` = $get_asset_name AND `department_id` = $get_department_id ; 
+        WHERE `asset_name` = '$get_asset_name' AND `department_id` = '$get_department_id' 
         LIMIT 1" ;
 
 
@@ -29,4 +29,6 @@ if (mysqli_num_rows($check_request) > 0){
      if($addRequest){
         echo "success" ;
      }
-}  ?>
+} 
+  
+?>
