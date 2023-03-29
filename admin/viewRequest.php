@@ -60,7 +60,7 @@
                                                                             request_tbl.request_timestamp ASC") or die(mysqli_error($connectionString));
                                                 while ($eachRequest = mysqli_fetch_array($getRequest)) {
 
-                                        
+                                                    $get_request_id = $eachRequest['request_id'];
                                                     $get_asset_name = $eachRequest['asset_name'];
                                                     $get_request_reason = $eachRequest['request_reason'];
                                                     $get_asset_department = $eachRequest['department_name'];
@@ -76,8 +76,8 @@
                                                         <td><?php echo   $get_request_reason;  ?></td>
                                                         <td><?php echo $get_asset_request_date;  ?></td>
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateAsset.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Edit</a>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_asset_Id  ?>">Delete</button>
+                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateAsset.php?id='.$get_request_id ; ?>" id="<?php echo $get_request_id  ?>">Approve</a>
+                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_request_id  ?>">Disapprove</button>
                                                         </td>
 
                                                     </tr>
