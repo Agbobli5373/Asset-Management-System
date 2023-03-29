@@ -160,9 +160,9 @@
                        </ul>
                    </li>
                    <li>
-                       <a href="../admin/requestedAsset.php" class="waves-effect">
+                       <a href="../admin/viewRequest.php" class="waves-effect">
                            <i class="fa fa-landmark"></i>
-                           <span>Requested Asserts</span>
+                           <span>Assets Request</span>
                        </a>
                    </li>
                    <li>

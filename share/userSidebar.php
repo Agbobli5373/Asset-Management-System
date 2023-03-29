@@ -123,12 +123,15 @@
                    </li>
 
                    <li>
-                       <a href="../user/requestAsset.php" class="waves-effect">
+                       <a href="javascript: void(0);" class="has-arrow waves-effect">
                            <i class="fa fa-landmark"></i>
-                           <span>Request Assert</span>
+                           <span>Request</span>
                        </a>
+                       <ul class="sub-menu" aria-expanded="false">
+                           <li><a href="../user/viewRequest.php">Assets Request</a></li>
+                           <li><a href="../user/requestAsset.php">Request New Asset</a></li>
+                       </ul>
                    </li>
-
 
                    <li>
                        <a href="javascript: void(0);" class="has-arrow waves-effect">
