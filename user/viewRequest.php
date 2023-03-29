@@ -68,6 +68,7 @@
                                                     $get_request_reason = $eachRequest['request_reason'];
                                                     $get_asset_department = $eachRequest['department_name'];
                                                     $get_asset_request_date = $eachRequest['request_timestamp'];
+                                                    $get_request_status = $eachRequest["status"];
               
 
                                                 ?>
@@ -78,10 +79,7 @@
                                                         <td><?php echo  $get_asset_department;  ?></td>
                                                         <td><?php echo   $get_request_reason;  ?></td>
                                                         <td><?php echo $get_asset_request_date;  ?></td>
-                                                        <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateAsset.php?id='.$get_asset_Id ; ?>" id="<?php echo $get_asset_Id  ?>">Edit</a>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_asset_Id  ?>">Delete</button>
-                                                        </td>
+                                                        <td> <?php echo $get_request_status ?>  </td>
 
                                                     </tr>
 
