@@ -80,7 +80,6 @@
                                                         <td><?php echo   $get_request_reason;  ?></td>
                                                         <td><?php echo $get_asset_request_date;  ?></td>
                                                         <td> <?php echo $get_request_status ?>  </td>
-
                                                     </tr>
 
 

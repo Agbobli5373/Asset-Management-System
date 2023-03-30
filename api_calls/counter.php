@@ -17,6 +17,9 @@
    $complainsql = mysqli_query($connectionString, "SELECT * FROM `complain_tbl` WHERE `isResolve` = 'NO';");
    $complainNumber = mysqli_num_rows($complainsql);
 
+   $requestSql = mysqli_query($connectionString, "SELECT * FROM `request_tbl`;");
+   $requestNumber = mysqli_num_rows($requestSql);
+
    //user
    $department = $_COOKIE['department_id'];
    $dptassetsql = mysqli_query($connectionString, "SELECT * FROM `asset_tbl` WHERE `department_id` = '$department'; ");
