@@ -95,17 +95,19 @@
                         if ($('.current-password').val() === '') {
                             alertify.error("Please Enter Name");
                         } else {
-
+                           
                             $.ajax({
                                 url: '../api_calls/reset-password.php',
                                 type: 'POST',
                                 data: formdata,
                                 success: function(res) {
+                                    console.log(res)
                                     if (res.trim() === "success") {
-                                        $('.department-name').val('');
+                                        $('.current-password').val('');
+                                        $('.new-password').val('');
                                         alertify.success("Password Reset Successfully");
 
-                                    } else if (res.trim() === "already") {
+                                    } else if (res.trim() === "not_match") {
                                         alertify.error("Incorreect current password");
 
                                     }
