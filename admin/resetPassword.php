@@ -89,7 +89,7 @@
                 $(document).ready(function() {
 
                     alertify.set('notifier', 'position', 'top-right');
-                    $('#add-department').submit(function(e) {
+                    $('#reset-password').submit(function(e) {
                         e.preventDefault();
                         var formdata = $(this).serialize();
                         if ($('.current-password').val() === '') {
@@ -97,16 +97,16 @@
                         } else {
 
                             $.ajax({
-                                url: '../api_calls/add-department.php',
+                                url: '../api_calls/reset-password.php',
                                 type: 'POST',
                                 data: formdata,
                                 success: function(res) {
                                     if (res.trim() === "success") {
                                         $('.department-name').val('');
-                                        alertify.success("Added Successfully");
+                                        alertify.success("Password Reset Successfully");
 
                                     } else if (res.trim() === "already") {
-                                        alertify.error("Name Exists Already");
+                                        alertify.error("Incorreect current password");
 
                                     }
 
