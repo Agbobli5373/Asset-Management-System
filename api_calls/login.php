@@ -27,10 +27,10 @@ if (mysqli_num_rows($query) > 0) {
     $departmet_id = $user_details['department_id'];
     $user_id = $user_details['user_id'];
 
-    $_SESSION['username'] = $username ;
+    /*$_SESSION['username'] = $username ;
     $_SESSION['email'] = $email ;
     $_SESSION['role'] = $role ;
-    $_SESSION['department_id'] = $departmet_id ; 
+    $_SESSION['department_id'] = $departmet_id ;  */
 
     setcookie('username', $username, time() + 3600, '/');
     setcookie('email', $email, time() + 3600, '/');
