@@ -36,7 +36,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Reset Admin Password</h4>
+                                    <h4 class="header-title">Reset Password</h4>
 
 
                                     <form class="mt-4" id="reset-password" method="POST">
