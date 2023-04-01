@@ -81,7 +81,7 @@
                    </button>
                    <div class="dropdown-menu dropdown-menu-right">
                        <!-- item-->
-                       <a class="dropdown-item" href="resetPassword.php"><i class="fa fa-settings font-size-16 align-middle mr-1"></i> Reset Password</a>
+                       <a class="dropdown-item" href="resetPassword.php"><i class="fa fa-unlock-alt font-size-16 align-middle mr-1"></i> Reset Password</a>
                        <a class="dropdown-item" href="getProfile.php"><i class="fa fa-user font-size-16 align-middle mr-1"></i> Profile</a>
                   
                        <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
@@ -119,7 +119,7 @@
                    </li>
                    <li>
                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                           <i class="fa fa-user"></i>
+                           <i class="fa fa-users"></i>
                            <span>Users</span>
                        </a>
                        <ul class="sub-menu" aria-expanded="false">
