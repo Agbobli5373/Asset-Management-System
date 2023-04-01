@@ -128,7 +128,7 @@
                 alertify.confirm("Are You Sure Want To Aprove the request",
                     function() {
                         $.ajax({
-                            url: '../api_calls/approve.php',
+                            url: '../api_calls/approve-request.php',
                             type: 'POST',
                             data: {
                                 id: id
