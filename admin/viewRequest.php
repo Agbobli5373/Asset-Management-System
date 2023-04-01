@@ -76,8 +76,8 @@
                                                         <td><?php echo   $get_request_reason;  ?></td>
                                                         <td><?php echo $get_asset_request_date;  ?></td>
                                                         <td>
-                                                            <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateAsset.php?id='.$get_request_id ; ?>" id="<?php echo $get_request_id  ?>">Approve</a>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_request_id  ?>">Disapprove</button>
+                                                            <button type="button" class="btn btn-outline-success btn-sm btn-approve mx-2"  id="<?php echo $get_request_id  ?>">Approve</a>
+                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-disapprove" id="<?php echo $get_request_id  ?>">Disapprove</button>
                                                         </td>
 
                                                     </tr>
@@ -123,12 +123,12 @@
 
             alertify.set('notifier', 'position', 'top-right');
 
-            $(document).on('click', '.btn-delete', function(e) {
+            $(document).on('click', '.btn-approve', function(e) {
                 var id = $(this).attr('id');
-                alertify.confirm("Are You Sure Want To Delete This Asset",
+                alertify.confirm("Are You Sure Want To Aprove the request",
                     function() {
                         $.ajax({
-                            url: '../api_calls/delete-asset.php',
+                            url: '../api_calls/approve.php',
                             type: 'POST',
                             data: {
                                 id: id
@@ -136,8 +136,8 @@
                             success: function(res) {
 
                                 if (res.trim() === 'success') {
-                                    alertify.success("Deleted Successfully");
-                                    window.location.href = 'getAssets.php';
+                                    alertify.success("Request Approve Successfully");
+                                    //window.location.href = 'getAssets.php';
                                 } else {
                                     alertify.error("Something went wrong");
                                     console.log(res);
@@ -153,11 +153,45 @@
                     function() {
 
                     }).set('labels', {
-                    ok: 'Yes, Delete!',
+                    ok: 'Yes, Approve!',
                     cancel: 'Not Today'
-                }).set('movable', 'true').setHeader('Delete user');
+                }).set('movable', 'true').setHeader('Approve Asset Request');
             })
 
+            $(document).on('click', '.btn-disapprove', function(e) {
+                var id = $(this).attr('id');
+                alertify.confirm("Are You Sure Want To Disapprove the request",
+                    function() {
+                        $.ajax({
+                            url: '../api_calls/disapprove-request.php',
+                            type: 'POST',
+                            data: {
+                                id: id
+                            },
+                            success: function(res) {
+
+                                if (res.trim() === 'success') {
+                                    alertify.success("Request Disapprove Successfully");
+                                    //window.location.href = 'getAssets.php';
+                                } else {
+                                    alertify.error("Something went wrong");
+                                    console.log(res);
+                                }
+
+                            },
+                            error: function(res) {
+                                console.log(res);
+                            }
+
+                        });
+                    },
+                    function() {
+
+                    }).set('labels', {
+                    ok: 'Yes, Dispprove!',
+                    cancel: 'Not Today'
+                }).set('movable', 'true').setHeader('Disapprove Asset Request');
+            })
 
 
 
