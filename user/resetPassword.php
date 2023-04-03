@@ -36,7 +36,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Reset Password</h4>
+                                    <h4 class="header-title">Change Password</h4>
 
 
                                     <form class="mt-4" id="reset-password" method="POST">
@@ -59,7 +59,7 @@
 
                                         </div>
 
-                                        <button class="btn btn-primary text-center" type="submit">Reset Password</button>
+                                        <button class="btn btn-primary text-center" type="submit">Change Password</button>
                                     </form>
                                 </div>
                             </div>
@@ -106,6 +106,7 @@
                                         $('.current-password').val('');
                                         $('.new-password').val('');
                                         alertify.success("Password Reset Successfully");
+                                        window.location.href = 'dashboard.php.php';
 
                                     } else if (res.trim() === "not_match") {
                                         alertify.error("Incorreect current password");

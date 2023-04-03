@@ -104,6 +104,7 @@
                                     if (res.trim() === "success") {
                                         $('.department-name').val('');
                                         alertify.success("Password Reset Successfully");
+                                        window.location.href = 'dashboard.php';
 
                                     } else if (res.trim() === "not_match") {
                                         alertify.error("Incorreect current password");

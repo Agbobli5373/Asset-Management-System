@@ -80,7 +80,7 @@
                    </button>
                    <div class="dropdown-menu dropdown-menu-right">
                        <!-- item-->
-                       <a class="dropdown-item" href="resetPassword.php"><i class="fa fa-user font-size-16 align-middle mr-1"></i> Reset Password</a>
+                       <a class="dropdown-item" href="resetPassword.php"><i class="fa fa-unlock-alt  font-size-16 align-middle mr-1"></i> Reset Password</a>
                        <a class="dropdown-item" href="getProfile.php"><i class="fa fa-user font-size-16 align-middle mr-1"></i> Profile</a>
 
                        <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
