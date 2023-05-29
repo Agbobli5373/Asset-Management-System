@@ -135,7 +135,7 @@
                 alertify.confirm("Are You Sure Want To Delete This product",
                     function() {
                         $.ajax({
-                            url: '../api_calls/delete-product.php',
+                            url: '../api_calls/delete-stock.php',
                             type: 'POST',
                             data: {
                                 id: id
@@ -144,7 +144,7 @@
 
                                 if (res.trim() === 'success') {
                                     alertify.success("Deleted Successfully");
-                                    window.location.href = 'getproducts.php';
+                                    window.location.href = 'getProduct.php';
                                 } else {
                                     alertify.error("Something went wrong");
                                     console.log(res);
