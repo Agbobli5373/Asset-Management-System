@@ -10,7 +10,7 @@ $get_product_quantity = $_POST['quantity'];
 
 
 
-$insert_product_sql = "INSERT INTO `product_tbl` (`product_name`, 
+$insert_product_sql = "INSERT INTO `stock_tbl` (`product_name`, 
                             `category_id`,  `product_price`, `product_quantity`,
                             `product_timestamp`) 
                      VALUES ('$get_product_name','$get_product_category',
