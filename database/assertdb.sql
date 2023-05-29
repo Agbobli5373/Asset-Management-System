@@ -42,6 +42,14 @@ CREATE TABLE `asset_tbl` (
 --
 -- Dumping data for table `asset_tbl`
 --
+CREATE TABLE `stock_tbl` (
+  `product_id` int(100) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `product_quantity` int(50) DEFAULT NULL,
+  `product_price` decimal(10,2) NOT NULL,
+  `product_timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 INSERT INTO `asset_tbl` (`asset_id`, `asset_name`, `department_id`, `asset_quantity`, `category_id`, `asset_price`, `depreciated_rate`, `details`, `asset_timestamp`) VALUES
 (8, 'Computer System ', '11', 10, '2', '1.00', '0.00', 'Computer for the department', '2023-03-13 22:31:03'),
