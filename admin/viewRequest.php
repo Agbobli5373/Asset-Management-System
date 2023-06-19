@@ -56,8 +56,9 @@
                                                 <?php
                                                 $counter = 1;
                                                 $getRequest = mysqli_query($connectionString, "SELECT * FROM request_tbl
-                                                                            JOIN department_tbl on request_tbl.department_id = department_tbl.department_id ORDER BY
-                                                                            request_tbl.request_timestamp ASC") or die(mysqli_error($connectionString));
+                                                                            JOIN department_tbl on request_tbl.department_id = department_tbl.department_id 
+                                                                            WHERE request_tbl.status = 'PENDING'
+                                                                            ORDER BY request_tbl.request_timestamp DESC") or die(mysqli_error($connectionString));
                                                 while ($eachRequest = mysqli_fetch_array($getRequest)) {
 
                                                     $get_request_id = $eachRequest['request_id'];
@@ -76,7 +77,7 @@
                                                         <td><?php echo   $get_request_reason;  ?></td>
                                                         <td><?php echo $get_asset_request_date;  ?></td>
                                                         <td>
-                                                            <button type="button" class="btn btn-outline-success btn-sm btn-approve mx-2"  id="<?php echo $get_request_id  ?>">Approve</a>
+                                                            <a href="addAssert.php" type="button" class="btn btn-outline-success btn-sm btn-approve mx-2" >Assign Assert</a>
                                                             <button type="button" class="btn btn-outline-danger btn-sm btn-disapprove" id="<?php echo $get_request_id  ?>">Disapprove</button>
                                                         </td>
 
@@ -95,10 +96,6 @@
                     </div>
 
                     <!-- End Page-content -->
-                    
-
-
-
 
                     <?php require_once '../share/footer.php'; ?>
 
@@ -118,45 +115,6 @@
 
         <script type='text/javascript'>
         $(document).ready(function() {
-
-
-
-            alertify.set('notifier', 'position', 'top-right');
-
-            $(document).on('click', '.btn-approve', function(e) {
-                var id = $(this).attr('id');
-                alertify.confirm("Are You Sure Want To Aprove the request",
-                    function() {
-                        $.ajax({
-                            url: '../api_calls/approve-request.php',
-                            type: 'POST',
-                            data: {
-                                id: id
-                            },
-                            success: function(res) {
-
-                                if (res.trim() === 'success') {
-                                    alertify.success("Request Approve Successfully");
-                                    //window.location.href = 'getAssets.php';
-                                } else {
-                                    alertify.error("Something went wrong");
-                                    console.log(res);
-                                }
-
-                            },
-                            error: function(res) {
-                                console.log(res);
-                            }
-
-                        });
-                    },
-                    function() {
-
-                    }).set('labels', {
-                    ok: 'Yes, Approve!',
-                    cancel: 'Not Today'
-                }).set('movable', 'true').setHeader('Approve Asset Request');
-            })
 
             $(document).on('click', '.btn-disapprove', function(e) {
                 var id = $(this).attr('id');

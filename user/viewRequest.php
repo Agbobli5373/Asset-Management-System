@@ -50,6 +50,7 @@
                                                     <th scope="col">Reason</th>
                                                     <th scope="col">Date Requestd</th>
                                                     <th scope="col">Status</th>
+                                                    <th scope="col">Action</th>
 
                                                 </tr>
                                             </thead>
@@ -58,9 +59,9 @@
                                                 $counter = 1;
                                                 $getRequest = mysqli_query($connectionString, "SELECT * FROM request_tbl
                                                                             JOIN department_tbl on request_tbl.department_id = department_tbl.department_id 
-                                                                            WHERE request_tbl.department_id = '$user_dp'
+                                                                            WHERE request_tbl.department_id = '$user_dp' AND request_tbl.status = 'PENDING'
                                                                             ORDER BY
-                                                                            request_tbl.request_timestamp ASC") or die(mysqli_error($connectionString));
+                                                                            request_tbl.request_timestamp DESC") or die(mysqli_error($connectionString));
                                                 while ($eachRequest = mysqli_fetch_array($getRequest)) {
 
                                         
@@ -69,6 +70,7 @@
                                                     $get_asset_department = $eachRequest['department_name'];
                                                     $get_asset_request_date = $eachRequest['request_timestamp'];
                                                     $get_request_status = $eachRequest["status"];
+                                                    $get_request_id = $eachRequest["request_id"];
               
 
                                                 ?>
@@ -80,6 +82,8 @@
                                                         <td><?php echo   $get_request_reason;  ?></td>
                                                         <td><?php echo $get_asset_request_date;  ?></td>
                                                         <td> <?php echo $get_request_status ?>  </td>
+                                                        <td><button type="button" class="btn btn-outline-success btn-sm btn-approve mx-2" id="<?php echo $get_request_id ?>"  >Approve</button></td>
+
                                                     </tr>
 
 
@@ -117,52 +121,42 @@
 
 
         <script type='text/javascript'>
-        $(document).ready(function() {
+        alertify.set('notifier', 'position', 'top-right');
 
+$(document).on('click', '.btn-approve', function(e) {
+    var id = $(this).attr('id');
+    alertify.confirm("Are You Sure Want To Aprove the request",
+        function() {
+            $.ajax({
+                url: '../api_calls/approve-request.php',
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function(res) {
 
+                    if (res.trim() === 'success') {
+                        alertify.success("Request Approve Successfully");
+                        window.location.href = 'viewRequest.php';
+                    } else {
+                        alertify.error("Something went wrong");
+                        console.log(res);
+                    }
 
-            alertify.set('notifier', 'position', 'top-right');
+                },
+                error: function(res) {
+                    console.log(res);
+                }
 
-            $(document).on('click', '.btn-delete', function(e) {
-                var id = $(this).attr('id');
-                alertify.confirm("Are You Sure Want To Delete This Asset",
-                    function() {
-                        $.ajax({
-                            url: '../api_calls/delete-asset.php',
-                            type: 'POST',
-                            data: {
-                                id: id
-                            },
-                            success: function(res) {
+            });
+        },
+        function() {
 
-                                if (res.trim() === 'success') {
-                                    alertify.success("Deleted Successfully");
-                                    window.location.href = 'getAssets.php';
-                                } else {
-                                    alertify.error("Something went wrong");
-                                    console.log(res);
-                                }
-
-                            },
-                            error: function(res) {
-                                console.log(res);
-                            }
-
-                        });
-                    },
-                    function() {
-
-                    }).set('labels', {
-                    ok: 'Yes, Delete!',
-                    cancel: 'Not Today'
-                }).set('movable', 'true').setHeader('Delete user');
-            })
-
-
-
-
-
-        });
+        }).set('labels', {
+        ok: 'Yes, Approve!',
+        cancel: 'Not Today'
+    }).set('movable', 'true').setHeader('Approve Asset Request');
+})
 
     </script> 
 

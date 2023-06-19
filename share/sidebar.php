@@ -139,6 +139,16 @@
                    </li>
                    <li>
                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                           <i class="fa fa-landmark "></i>
+                           <span>Stock</span>
+                       </a>
+                       <ul class="sub-menu" aria-expanded="false">
+                           <li><a href="../admin/getProduct.php">Stock</a></li>
+                           <li><a href="../admin/addToStock.php">Add To Stock</a></li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="javascript: void(0);" class="has-arrow waves-effect">
                            <i class="fa fa-building"></i>
                            <span>Department</span>
                        </a>
@@ -194,4 +204,4 @@
            <!-- Sidebar -->
        </div>
    </div>
-   <!-- Left Sidebar End -->
+   <!-- Left Sidebar End addToStock -->

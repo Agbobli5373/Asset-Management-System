@@ -42,8 +42,28 @@
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name of the Asset</label>
-                                                <input type="text" name="name" class="form-control name" id="name" placeholder="Asset Name" required>
-                                                <div class="valid-feedback">
+                                                <select class="form-control" id="asset" name="asset-id">
+
+                                                    <?php
+
+                                                    $get_stocks = mysqli_query($connectionString, "SELECT * FROM stock_tbl Where `product_quantity` > 0 ") or die(mysqli_error($connectionString));
+                                                    
+                                                    while ($each_product = mysqli_fetch_array($get_stocks)) {
+                                                        $product_id = $each_product['product_id'];
+                                                        $product_name = $each_product['product_name'];
+                                                        $product_price = $each_product['product_price'];
+                                                        $product_category = $each_product['product_category'];
+                                                        $product_qty = $each_product['product_quantity'];
+
+                                                    ?>
+
+                                                        <option value="<?php echo $product_id; ?>"><?php echo $product_name ." ( " . $product_qty ." )";  ?></option>
+
+
+                                                    <?php  }    ?>
+
+
+                                                </select>                                                <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
                                             </div>
@@ -71,7 +91,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                     <!--   <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="category">Category</label>
                                                 <select class="form-control" id="category" name="category">
@@ -103,7 +123,7 @@
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div>  -->
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="depreciate">Depreciate Percentage</label>
@@ -182,6 +202,10 @@
 
                                     } else if (res.trim() === "already") {
                                         alertify.error("Name Exists Already");
+
+                                    }
+                                    else if (res.trim() === "enough") {
+                                        alertify.error("Quantity is not enough");
 
                                     }
 

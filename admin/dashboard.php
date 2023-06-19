@@ -36,7 +36,7 @@
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">
-                                            <h5 class="font-size-14">Number of Asset Categories</h5>
+                                            <h5 class="font-size-14">Number of Stock</h5>
                                         </div>
                                         <div class="avatar-xs">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -44,7 +44,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <h4 class="m-0 align-self-center"><?php echo $categoryNumber;  ?></h4>
+                                    <h4 class="m-0 align-self-center"><?php echo $stockNumber;  ?></h4>
 
                                     <p class="py-2"></p>
 

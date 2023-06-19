@@ -20,6 +20,8 @@
    $requestSql = mysqli_query($connectionString, "SELECT * FROM `request_tbl`;");
    $requestNumber = mysqli_num_rows($requestSql);
 
+   $stockSql = mysqli_query($connectionString, "SELECT * FROM `stock_tbl` WHERE product_quantity > 0 ;");
+   $stockNumber = mysqli_num_rows($stockSql);
    //user
    $department = $_COOKIE['department_id'];
    $dptassetsql = mysqli_query($connectionString, "SELECT * FROM `asset_tbl` WHERE `department_id` = '$department'; ");
