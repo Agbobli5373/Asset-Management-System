@@ -103,7 +103,7 @@
                                     if (res.trim() === "success") {
                                         $('.asset-name').val('');
                                         alertify.success("Request Sent Successfully");
-                                        window.location.href = 'viewRequeest.php';
+                                        window.location.href = 'viewRequest.php';
 
                                     } else if (res.trim() === "already") {
                                         alertify.error("Request Sent Already");
