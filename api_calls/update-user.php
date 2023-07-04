@@ -5,7 +5,7 @@ require_once '../config/dbConnect.php';
 $get_user_name = $_POST['name'];
 $get_user_department = $_POST['department'];
 $get_user_email = $_POST['email'];
-$get_user_password = $_POST['password'];
+$get_user_password = md5($_POST['password']);
 $get_user_role = $_POST['role'];
 $get_user_id = $_POST['user_id'];
 

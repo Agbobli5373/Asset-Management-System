@@ -2,9 +2,19 @@
 
 require_once '../config/dbConnect.php';
 
-        $get_current_password = $_POST['current-password'];
-        $get_new_password = $_POST['new-password'];
+        
         $get_user_id = $_COOKIE['user_id'] ;
+
+        if(isset($_POST['current_password'])){
+           if($_POST['current_password'] != '' && $_POST['current_password'] >= 6){
+               $get_current_password = md5($_POST['current-password']);
+               $get_new_password = md5($_POST['new-password']);
+           }
+           else{
+               echo 'invalid_password' ;
+           }
+           
+        }
 
         $sql_check_password = "SELECT * 
                                  FROM `user_tbl` 

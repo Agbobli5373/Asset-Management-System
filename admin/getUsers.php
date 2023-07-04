@@ -51,7 +51,6 @@
                                                     <th scope="col">Department</th>
                                                     <th scope="col">Role</th>
                                                     <th scope="col">Date Created</th>
-                                                    <th scope="col">Password</th>
                                                     <th scope="col">Action</th>
 
                                                 </tr>
@@ -79,7 +78,7 @@
                                                         <td><?php echo  $get_user_department;  ?></td>
                                                         <td><?php echo $get_user_role;  ?></td>
                                                         <td><?php echo $get_user_createdDate;  ?></td>
-                                                        <td><?php echo $get_user_password;  ?></td>
+                                                    
                                                         <td>
                                                             <a role="button" type="button" class="btn btn-outline-success btn-sm btn-edit" href="<?php echo 'updateUser.php?id='.$get_user_Id ; ?>" id="<?php echo $get_user_Id  ?>">Edit</a>
                                                             <button type="button" class="btn btn-outline-danger btn-sm btn-delete" id="<?php echo $get_user_Id  ?>">Delete</button>

@@ -8,7 +8,7 @@ require_once '../api_calls/utils.php';
 
 
 $get_email = filter($_POST['email'], $connectionString);
-$get_password = filter($_POST['password'], $connectionString);;
+$get_password = md5(filter($_POST['password'], $connectionString));
 
 $sql = "SELECT * 
                FROM user_tbl
